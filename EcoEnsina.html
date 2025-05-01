@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>EcoEnsina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Times New Roman", sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        .container {
+            width: 100%;
+            max-width: 1440px; /* Limita a largura do site */
+            background-color: white;
+        }
+        .header {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1440px; /* Mantém a largura fixa */
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        .menu-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+        nav {
+            display: flex;
+            gap: 40px; /* Ajustei o espaçamento do menu */
+        }
+        nav a {  
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            background-color: #004210;
+            padding: 15px 30px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            white-space: nowrap; /* Evita que os botões se quebrem em várias linhas */
+        }
+        nav a:hover {
+            background-color: #002a08;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            max-width: 1440px;
+            height: 400px;
+            background-image: url('https://img.freepik.com/fotos-gratis/arranjo-de-folhas-de-palmeira-verde-3d_23-2149015443.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-top: 10px;
+            color: white;
+        }
+        .content {
+            padding: 40px;
+            text-align: center;
+            max-width: 1440px;
+            margin: auto; /* Centraliza o conteúdo */
+        }
+        .content h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 28px;
+            background-color: #002f05;
+            padding: 10px;
+            text-align: center;
+            max-width: 90%;
+            margin: auto;
+        }
+        .content p {
+            font-size: 20px;
+            color: #000000;
+            line-height: 1.6;
+            font-family: Roboto;
+            max-width: 90%;
+            margin: auto;
+            text-align: justify;
+        }
+        .image-top-right {
+            width: 80px;
+        }
+        .mentor-section {
+    background-color: #004210; /* Fundo verde escuro */
+    padding: 50px 0; /* Espaçamento acima e abaixo */
+    color: white; /* Cor do texto */
+    text-align: center;
+}
+
+.mentor-container {
+    display: flex; /* Deixa a imagem e o texto lado a lado */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza no meio */
+    gap: 20px; /* Espaço entre a imagem e o texto */
+    max-width: 1000px; /* Define um tamanho máximo */
+    margin: 0 auto; /* Centraliza a seção na página */
+}
+
+.mentor-container img {
+    width: 200px; /* Define o tamanho da imagem */
+    border-radius: 10px; /* Bordas arredondadas na imagem */
+}
+
+.mentor-text {
+    max-width: 500px; /* Define um tamanho máximo para o texto */
+    text-align: left; /* Deixa o texto alinhado à esquerda */
+}
+
+.mentor-text h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.formulario-section {
+    background-color: #004210; /* Fundo verde */
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.formulario-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.formulario-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    background-color: #fff;
+    color: #004210;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #c8ffc8;
+}
+
+.impacto-resultado {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    color: #002a08;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+    </style>
+</head>
+<style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="c:\Users\paulo\Downloads\Logo EcoEnsina-Photoroom.png" alt="Logo EcoEnsina" class="logo">   
+            <div class="menu-container">
+                <nav>
+                    <a href="#" onclick="location.reload();">Home</a>
+                    <a href="#por-que">Por que?</a>
+                    <a href="#modo">Modo</a>
+                    <a href="#quem">Quem?</a>
+                </nav>
+            </div>
+            <img src="c:\Users\paulo\Downloads\brasaoceara.png" alt="Imagem no canto superior direito" class="image-top-right">
+        </header>
+
+        <section class="hero">
+            <h1>EcoEnsina</h1>
+            <p>Aprenda hoje, preserve para sempre</p>
+        </section>
+
+        <section id="por-que" class="content">
+            <h2>Por que criamos o EcoEnsina?</h2>
+            <b><p>A EcoEnsina nasceu da necessidade urgente de promover a educação ambiental, a sustentabilidade e a consciência climática. Em um mundo onde os impactos ambientais se tornam cada vez mais evidentes, entendemos que a informação e o conhecimento são ferramentas essenciais para a transformação. Queremos capacitar indivíduos e comunidades para adotarem práticas sustentáveis e ajudarem na preservação do meio ambiente.</p></b>
+            <b><p>O que queremos promover aos nossos usuários:</p></b>
+            <p><b>1º Inspiração para mudanças globais</b> – Acreditamos que pequenas mudanças individuais geram um grande impacto coletivo na luta contra as mudanças climáticas</p>
+            <p><b>2º Educação transformadora</b> – Auxiliamos estudantes, professores e o público geral a compreenderem a importância do meio ambiente e da sustentabilidade</p>
+            <p><b>3º Engajamento comunitário</b> – Criamos um espaço de troca para incentivar iniciativas sustentáveis e fortalecer a conexão entre as pessoas e o planeta.</p>
+            <p><b>4º Acesso à informação confiável</b> – Oferecemos conteúdos educativos baseados em ciência para combater a desinformação ambiental.</p>
+            <p><b>5º Soluções práticas e aplicáveis</b> – Ensinamos maneiras simples e eficientes de reduzir impactos ambientais no dia a dia.</p>
+        </section>
+
+        <section id="modo" class="content">
+            <h2>Modo de Ação</h2>
+            <b><p>A EcoEnsina desenvolve suas atividades por meio de um compromisso profundo com a educação, conscientização e engajamento de todos os indivíduos em torno das questões ambientais. Com uma abordagem inovadora e acessível, promovemos o aprendizado sobre sustentabilidade e preservação do meio ambiente, utilizando métodos interativos e eficazes que facilitam a compreensão de temas complexos. Nosso objetivo é transformar o conhecimento adquirido em ações práticas e sustentáveis, que gerem impacto positivo tanto na sociedade quanto no meio ambiente, contribuindo para a construção de um futuro mais equilibrado e responsável.</p></b>
+            <b><p>1º Produção de Conteúdo Educativo:</p></b>
+                <p>Artigos e guias sobre meio ambiente e sustentabilidade.</p>
+                <p>Vídeos educativos e infográficos explicativos.</p>
+                <p>Cursos e palestras para aprofundamento em temas ambientais.</p>
+            <b><p>2º Incentivo a Práticas Sustentáveis</p></b>
+                <p>Dicas para redução do consumo de plástico e desperdício de alimentos.</p>
+                <p>Incentivo ao consumo consciente e economia circular.</p>
+                <p>Divulgação de projetos e soluções ambientais inovadoras.</p>
+            <b><p>3º Conscientização e Engajamento Comunitário</p></b>
+                <p>Fóruns e debates sobre emergências climáticas e preservação ambiental.</p>
+                <p>Parcerias com escolas, empresas e ONGs para ações educativas.</p>
+                <p>Mobilização para campanhas ecológicas e eventos sustentáveis.</p>
+            <b><p>Nosso Compromisso</p></b>
+            <p>A EcoEnsina busca impactar pessoas, comunidades e organizações, criando um movimento coletivo pela preservação do planeta. Nosso modo de ação é educativo, acessível e prático, sempre incentivando mudanças que fazem a diferença!
+                Junte-se a nós nessa missão!
+                🌍💚</p>
+        </section>
+
+        <section id="quem" class="content">
+            <h2>Quem Somos</h2>
+            <b><p>Somos alunos da EEEP Maria de Jesus Rodrigues Alves, unidos com o propósito de promover o projeto EcoEnsina. Nosso objetivo é disseminar o conhecimento sobre sustentabilidade e educação ambiental, conscientizando a comunidade sobre a importância de práticas que preservem o nosso planeta. Com dedicação e empenho, buscamos inspirar e engajar pessoas a adotarem ações sustentáveis no dia a dia, para um futuro mais equilibrado e responsável.
+
+                Nosso time é composto por jovens comprometidos com a causa, incluindo:
+            </p></b>
+                <p><b>Paulo Raí Lopes de Melo</b>, um aluno dedicado e apaixonado por questões ambientais. Ele tem se destacado no desenvolvimento de estratégias para engajar a comunidade local e criar campanhas educativas eficazes sobre preservação ambiental.</p>
+                
+                <p><b>Ana Luysa</b>, que possui um forte senso de responsabilidade e liderança. Sua habilidade em pensar fora da caixa é essencial para o desenvolvimento de novas abordagens e soluções que tornam a sustentabilidade acessível a todos.Sua paixão por educar e compartilhar informações sobre como todos podem contribuir para a proteção do meio ambiente a torna uma voz fundamental na nossa missão.</p>
+                
+                <p><b>Maria Eduarda</b>, que traz uma perspectiva criativa e inovadora ao projeto. Sua habilidade em pensar fora da caixa é essencial para o desenvolvimento de novas abordagens e soluções que tornam a sustentabilidade acessível a todos.</p>
+                
+                <p><b>Emilly Martins</b>, uma estudante que se dedica a estudar o impacto das pequenas ações no meio ambiente. Seu interesse por pesquisa e análise ambiental tem sido crucial para a criação de conteúdos e materiais educativos, ajudando a ampliar o alcance de nossas ações.
+                
+                <p>Juntos, buscamos impactar positivamente nossa comunidade e além, criando um legado de conscientização e mudança em prol do meio ambiente.</p>
+        </section>
+        <section id="mapa" class="content">
+    <h2>Localização e Atuação da EcoEnsina</h2>
+    <p>A EcoEnsina concentra grande parte de suas ações no município de Mucambo, no Ceará. Com um forte compromisso com a educação ambiental, desenvolvemos projetos voltados para escolas, comunidades e zonas rurais. Buscamos fortalecer a consciência ecológica e promover mudanças sustentáveis no cotidiano dos moradores, impactando positivamente a cidade e seus recursos naturais.</p>
+    
+    <!-- Mapa Interativo -->
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15924.514960648193!2d-40.74537827450298!3d-3.902218361116398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7954fca8d03b5f5%3A0x5dbb69e5258c1a28!2sMucambo%2C%20CE%2C%2062170-000!5e0!3m2!1spt-BR!2sbr!4v1714357039336!5m2!1spt-BR!2sbr" 
+        width="90%" 
+        height="500" 
+        style="border:0; border-radius: 15px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+     </iframe>
+    </section>
+
+    <title>Linha do Tempo - EcoEnsine</title>
+
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f9f4;
+    }
+
+    #linha-do-tempo {
+      padding: 50px 20px;
+      width: 95%; /* Aumenta a largura da seção da linha do tempo */
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    #linha-do-tempo h2 {
+      text-align: center;
+      color: white; /* Cor do texto dentro da caixa */
+      background-color: #002a08; /* Cor de fundo verde da caixa */
+      padding: 10px;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      border-radius: 8px;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: relative;
+    }
+
+    .event {
+      background: white;
+      padding: 20px;
+      border-left: 5px solid #002a08;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .event h3 {
+      margin: 0 0 10px;
+      color: #002a08;
+      font-size: 1.8rem;
+    }
+
+    .event p {
+      margin: 0;
+      color: #555;
+      font-size: 1.1rem;
+      text-align: center; /* Centraliza o texto no parágrafo */
+    }
+  </style>
+</head>
+<body>
+
+<section id="linha-do-tempo">
+  <h2>Linha do Tempo da Sustentabilidade</h2>
+  <div class="timeline">
+    <!-- 1972 -->
+    <div class="event" data-aos="fade-up">
+      <h3>1972</h3>
+      <p>Primeira Conferência da ONU sobre Meio Ambiente (Estocolmo).</p>
+    </div>
+    
+    <!-- 1987 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="100">
+      <h3>1987</h3>
+      <p>Relatório Brundtland — criação do conceito de Desenvolvimento Sustentável.</p>
+    </div>
+
+    <!-- 1992 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="200">
+      <h3>1992</h3>
+      <p>Eco-92 no Rio de Janeiro — Conferência das Nações Unidas sobre Meio Ambiente e Desenvolvimento.</p>
+    </div>
+
+    <!-- 2000 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="300">
+      <h3>2000</h3>
+      <p>Objetivos de Desenvolvimento do Milênio (ODM) adotados pela ONU.</p>
+    </div>
+
+    <!-- 2009 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="400">
+      <h3>2009</h3>
+      <p>Protocólo de Copenhague — Acordo internacional para combater as mudanças climáticas.</p>
+    </div>
+
+    <!-- 2015 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="500">
+      <h3>2015</h3>
+      <p>Lançamento dos Objetivos de Desenvolvimento Sustentável (ODS) pela ONU.</p>
+    </div>
+
+    <!-- 2020 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="600">
+      <h3>2020</h3>
+      <p>Início da Década da Ação para alcançar os ODS até 2030.</p>
+    </div>
+
+    <!-- 2021 -->
+    <div class="event" data-aos="fade-up" data-aos-delay="700">
+      <h3>2021</h3>
+      <p>Cúpula do Clima — Compromissos globais para reduzir emissões de carbono.</p>
+    </div>
+
+    <!-- 2025 (Futuro) -->
+    <div class="event" data-aos="fade-up" data-aos-delay="800">
+      <h3>2025</h3>
+      <p>Meta global de redução de emissões de carbono a ser alcançada por diversos países.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<!-- Seção de Gamificação EcoEnsina -->
+<section id="gamificacao" style="background: #e8f5e9; padding: 40px; font-family: 'Roboto', sans-serif;">
+    <h2 style="text-align: center; color: #2e7d32;">🌿 Sua Jornada Sustentável</h2>
+  
+    <!-- Painel de Pontuação -->
+    <div style="text-align: center; margin-top: 20px;">
+      <p style="font-size: 1.2rem;">Você acumulou:</p>
+      <h1 id="pontos" style="font-size: 3rem; color: #1b5e20;">0 pontos</h1>
+    </div>
+  
+    <!-- Selos conquistados -->
+    <div style="margin-top: 30px;">
+      <h3 style="text-align: center; color: #388e3c;">🏅 Selos Conquistados</h3>
+      <div id="selos" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;"></div>
+      <div id="descricao-selo" style="text-align: center; margin-top: 10px; color: #1b5e20; font-weight: bold;"></div>
+    </div>
+  
+    <!-- Ações interativas -->
+    <div style="text-align: center; margin-top: 40px;">
+      <textarea id="descricao" placeholder="Descreva o artigo, curso ou conteúdo compartilhado..." style="width: 80%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+      <br>
+      <button onclick="registrarAcao(5, 'Leu um artigo')" class="acao">📘 Li um artigo</button>
+      <button onclick="registrarAcao(10, 'Fez um curso')" class="acao">🎓 Completei um curso</button>
+      <button onclick="registrarAcao(3, 'Compartilhou conteúdo')" class="acao">📢 Compartilhei conteúdo</button>
+    </div>
+  
+    <!-- Histórico de ações -->
+    <div style="margin-top: 40px;">
+      <h3 style="text-align: center; color: #2e7d32;">📖 Suas Contribuições</h3>
+      <ul id="historico" style="list-style: none; padding: 0; max-width: 600px; margin: 0 auto; color: #2e7d32;"></ul>
+    </div>
+  </section>
+  
+  <style>
+    .acao {
+      background-color: #66bb6a;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 1rem;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  
+    .acao:hover {
+      background-color: #388e3c;
+    }
+  
+    .selo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #2e7d32;
+    }
+  </style>
+  
+  <script>
+    let pontos = 0;
+    const pontosEl = document.getElementById("pontos");
+    const selosEl = document.getElementById("selos");
+    const historicoEl = document.getElementById("historico");
+    const descricaoSeloEl = document.getElementById("descricao-selo");
+    const selosConquistados = [];
+  
+    const selos = [
+      { pontos: 15, imagem: "https://cdn-icons-png.flaticon.com/512/4243/4243161.png", titulo: "Explorador Verde" },
+      { pontos: 25, imagem: "https://cdn-icons-png.flaticon.com/512/2917/2917242.png", titulo: "Guardião da Natureza" },
+      { pontos: 35, imagem: "https://cdn-icons-png.flaticon.com/512/1998/1998627.png", titulo: "Herói Sustentável" }
+    ];
+  
+    function registrarAcao(valor, tipo) {
+      const descricao = document.getElementById("descricao").value.trim();
+      if (descricao === "") {
+        alert("Por favor, escreva uma descrição da atividade realizada.");
+        return;
+      }
+  
+      pontos += valor;
+      pontosEl.innerText = `${pontos} pontos`;
+  
+      const li = document.createElement("li");
+      li.innerHTML = `✅ <strong>${tipo}:</strong> ${descricao}`;
+      historicoEl.appendChild(li);
+  
+      document.getElementById("descricao").value = "";
+      verificarSelos();
+    }
+  
+    function verificarSelos() {
+      selos.forEach((selo) => {
+        if (pontos >= selo.pontos && !selosConquistados.includes(selo.pontos)) {
+          selosConquistados.push(selo.pontos);
+  
+          // Mostrar selo visual
+          const img = document.createElement("img");
+          img.src = selo.imagem;
+          img.alt = selo.titulo;
+          img.title = selo.titulo;
+          img.className = "selo-img";
+          selosEl.appendChild(img);
+  
+          // Mostrar descrição textual
+          descricaoSeloEl.innerText = `🎉 Você ganhou o selo "${selo.titulo}"!`;
+        }
+      });
+    }
+  </script>
+  
+
+        <section class="formulario-section">
+            <h2>Como Você Está Ajudando o Planeta?</h2>
+            <p>Responda ao formulário abaixo e descubra seu impacto ambiental!</p>
+        
+            <form id="formImpacto">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        
+                <label for="reciclagem">Você separa seu lixo para reciclagem?</label>
+                <select id="reciclagem" name="reciclagem" required>
+                    <option value="sim">Sim</option>
+                    <option value="às vezes">Às vezes</option>
+                    <option value="não">Não</option>
+                </select>
+        
+                <label for="transporte">Com que frequência você usa transporte público ou bicicleta?</label>
+                <select id="transporte" name="transporte" required>
+                    <option value="sempre">Sempre</option>
+                    <option value="às vezes">Às vezes</option>
+                    <option value="nunca">Nunca</option>
+                </select>
+        
+                <label for="economia">Você costuma economizar água e energia?</label>
+                <select id="economia" name="economia" required>
+                    <option value="sim">Sim</option>
+                    <option value="às vezes">Às vezes</option>
+                    <option value="não">Não</option>
+                </select>
+        
+                <label for="consumo">Você evita consumir produtos com muito plástico?</label>
+                <select id="consumo" name="consumo" required>
+                    <option value="sim">Sim</option>
+                    <option value="às vezes">Às vezes</option>
+                    <option value="não">Não</option>
+                </select>
+        
+                <label for="comida">Você tenta consumir alimentos locais ou orgânicos?</label>
+                <select id="comida" name="comida" required>
+                    <option value="sim">Sim</option>
+                    <option value="às vezes">Às vezes</option>
+                    <option value="não">Não</option>
+                </select>
+        
+                <label for="desperdicio">Você tenta reduzir o desperdício de alimentos?</label>
+                <select id="desperdicio" name="desperdicio" required>
+                    <option value="sim">Sim</option>
+                    <option value="às vezes">Às vezes</option>
+                    <option value="não">Não</option>
+                </select>
+        
+                <button type="button" onclick="calcularImpacto()">Enviar Respostas</button>
+            </form>
+        
+            <div id="resultadoImpacto" class="impacto-resultado"></div>
+        </section>
+        
+        <script>
+        function calcularImpacto() {
+            let nome = document.getElementById("nome").value;
+            let reciclagem = document.getElementById("reciclagem").value;
+            let transporte = document.getElementById("transporte").value;
+            let economia = document.getElementById("economia").value;
+            let consumo = document.getElementById("consumo").value;
+            let comida = document.getElementById("comida").value;
+            let desperdicio = document.getElementById("desperdicio").value;
+            
+            let pontos = 0;
+        
+            if (reciclagem === "sim") pontos += 2;
+            if (reciclagem === "às vezes") pontos += 1;
+        
+            if (transporte === "sempre") pontos += 2;
+            if (transporte === "às vezes") pontos += 1;
+        
+            if (economia === "sim") pontos += 2;
+            if (economia === "às vezes") pontos += 1;
+        
+            if (consumo === "sim") pontos += 2;
+            if (consumo === "às vezes") pontos += 1;
+        
+            if (comida === "sim") pontos += 2;
+            if (comida === "às vezes") pontos += 1;
+        
+            if (desperdicio === "sim") pontos += 2;
+            if (desperdicio === "às vezes") pontos += 1;
+        
+            let mensagem = "";
+            
+            if (pontos >= 14) {
+                mensagem = `🌱 Parabéns, ${nome}! Seu impacto ambiental é **muito positivo**! Você está fazendo uma grande diferença para o planeta. Continue assim!`;
+            } else if (pontos >= 10) {
+                mensagem = `🌍 ${nome}, você está no caminho certo! Mas ainda há pequenas mudanças que podem ser feitas para melhorar ainda mais seu impacto ambiental.`;
+            } else {
+                mensagem = `⚠️ ${nome}, seu impacto ambiental pode melhorar. Tente adotar mais hábitos sustentáveis como reciclagem, consumo consciente e redução de desperdício.`;
+            }
+        
+            document.getElementById("resultadoImpacto").innerHTML = `<p>${mensagem}</p>`;
+        }
+        </script>
+        
+        <section class="mentor-section">
+            <div class="mentor-container">
+                <img src="c:\Users\paulo\Downloads\raimundo.nonato.jpg" alt="Imagem do Mentor">
+                <div class="mentor-text">
+                    <h3>Mentor Raimundo Nonato De Sousa</h3>
+                    <p>Por trás de cada grande iniciativa, há sempre alguém que inspira, orienta e impulsiona o progresso. No caso do EcoEnsina, essa pessoa é o professor Raimundo Nonato De Sousa. Desde o início do projeto, ele foi um pilar essencial, oferecendo seu conhecimento, apoio e incentivo para que nossa equipe transformasse uma ideia em uma realidade concreta.</p>
+                </div>
+            </div>
+        </section>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
